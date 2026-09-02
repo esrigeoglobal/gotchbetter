@@ -33,9 +33,9 @@ if [ -z $BACKUP ]; then
 		echo "@ Can't find backup file. Please specify one with '-b'"
 		exit 1
 	fi
-	echo "@ Found backup file:"
-	echo "\t${BACKUP}"
-	echo -n "@ continue restroring this file? (y/n) "
+	printf "@ Found backup file:\n"
+	printf "\ts\n" "${BACKUP}"
+	printf "@ continue restroring this file? (y/n) "
 	read CONTINUE
 	CONTINUE=$(echo "${CONTINUE}" | tr "[:upper:]" "[:lower:]")
 	if [ "${CONTINUE}" != "y" ]; then
@@ -50,5 +50,5 @@ ping -c 1 "${UNIT_HOSTNAME}" > /dev/null 2>&1 || {
   exit 1
 }
 
-echo "@ restoring $BACKUP to $UNIT_HOSTNAME ..."
+printf "@ restoring %s to %s .....\n",  $BACKUP , $UNIT_HOSTNAME
 cat ${BACKUP} | ssh "${UNIT_USERNAME}@${UNIT_HOSTNAME}" "sudo tar xzv -C /"
