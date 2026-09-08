@@ -57,6 +57,14 @@ while getopts "u:h:p:i:c:?" opt; do
     esac
 done
 
+# Validate required
+if [[ -z "$USER" || -z "$HOST" ]]; then
+    echo "Error: Both -u (user) and -h (host) are required."
+    usage
+fi
+
+
+
 
 Example:
   $0 -u john -h 192.168.1.100 -i ~/.ssh/id_rsa
