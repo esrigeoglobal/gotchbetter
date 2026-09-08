@@ -18,4 +18,43 @@ echo "sharing connecting from upstream interface $UPSTREAM_IFACE to usb interfac
 
 sysctl -w net.inet.ip.forwarding=1
 pfctl -e
+
+
+set -e
+
+# Defaults
+PORT=22
+USER=""
+HOST=""
+IDENTITY=""
+COMMAND=""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo "nat on ${UPSTREAM_IFACE} from ${USB_IFACE}:network to any -> (${UPSTREAM_IFACE})" | pfctl -f -
