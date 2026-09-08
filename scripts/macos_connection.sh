@@ -34,17 +34,6 @@ usage() {
     cat <<EOF
 Usage: $0 -u USER -h HOST [OPTIONS]
 
-
-
-
-
-
-
-
-
-
-
-
 Required:
   -u USER      Remote username
   -h HOST      Remote host (IP or domain)
@@ -55,6 +44,18 @@ Options:
   -c "CMD"     Execute a command after login (instead of interactive shell)
   -?           Show this help
 
+# Parse arguments
+while getopts "u:h:p:i:c:?" opt; do
+    case "$opt" in
+        u) USER="$OPTARG" ;;
+        h) HOST="$OPTARG" ;;
+        p) PORT="$OPTARG" ;;
+        i) IDENTITY="$OPTARG" ;;
+        c) COMMAND="$OPTARG" ;;
+        \?|?) usage ;;
+        *) usage ;;
+    esac
+done
 
 
 Example:
