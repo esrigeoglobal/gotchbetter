@@ -63,15 +63,25 @@ if [[ -z "$USER" || -z "$HOST" ]]; then
     usage
 fi
 
-
-
-
 Example:
   $0 -u john -h 192.168.1.100 -i ~/.ssh/id_rsa
   $0 -u admin -h example.com -p 2222 -c "ls -la /var/log"
 EOF
     exit 0
 }
+
+# Build the SSH command
+SSH_CMD="ssh"
+
+# Add port if not default
+[[ "$PORT" != "22" ]] && SSH_CMD+=" -p $PORT"
+
+# Add identity file if provided
+[[ -n "$IDENTITY" ]] && SSH_CMD+=" -i $IDENTITY"
+
+# Add user@host
+SSH_CMD+=" $USER@$HOST"
+
 
 
 
