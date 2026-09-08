@@ -42,11 +42,24 @@ COMMAND=""
 
 
 
+Required:
+  -u USER      Remote username
+  -h HOST      Remote host (IP or domain)
+
+Options:
+  -p PORT      SSH port (default: 22)
+  -i FILE      Path to private key file
+  -c "CMD"     Execute a command after login (instead of interactive shell)
+  -?           Show this help
 
 
 
-
-
+Example:
+  $0 -u john -h 192.168.1.100 -i ~/.ssh/id_rsa
+  $0 -u admin -h example.com -p 2222 -c "ls -la /var/log"
+EOF
+    exit 0
+}
 
 
 
