@@ -29,7 +29,10 @@ HOST=""
 IDENTITY=""
 COMMAND=""
 
-
+# Help function
+usage() {
+    cat <<EOF
+Usage: $0 -u USER -h HOST [OPTIONS]
 
 
 
