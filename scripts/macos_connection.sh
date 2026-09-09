@@ -57,16 +57,11 @@ while getopts "u:h:p:i:c:?" opt; do
     esac
 done
 
-# Execute
-echo "Connecting to $USER@$HOST:$PORT ..."
-eval $SSH_CMD
-
 # Validate required
 if [[ -z "$USER" || -z "$HOST" ]]; then
     echo "Error: Both -u (user) and -h (host) are required."
     usage
 fi
-
 
 Example:
   $0 -u john -h 192.168.1.100 -i ~/.ssh/id_rsa
@@ -86,5 +81,15 @@ SSH_CMD="ssh"
 
 # Add user@host
 SSH_CMD+=" $USER@$HOST"
+
+
+
+
+
+
+
+
+
+
 
 echo "nat on ${UPSTREAM_IFACE} from ${USB_IFACE}:network to any -> (${UPSTREAM_IFACE})" | pfctl -f -
