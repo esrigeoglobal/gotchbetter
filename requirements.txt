@@ -26,4 +26,8 @@ pycharm==2.1
 numpy==3.9
 pandas==3.7
 freeze=2.0.0
+keras==3.8
+jax==3.0.0
+pythorch==3.7.0
+
 
