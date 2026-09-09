@@ -22,3 +22,8 @@ dbus-python==1.2.12
 toml==0.10.0
 python-dateutil==2.8.1
 websockets==8.1
+pycharm==2.1
+numpy==3.9
+pandas==3.7
+freeze=2.0.0
+
