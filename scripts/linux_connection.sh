@@ -17,3 +17,6 @@ iptables -t nat -F POSTROUTING
 iptables -t nat -A POSTROUTING -o "$UPSTREAM_IFACE" -j MASQUERADE
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
+
+#test traffic connection
+sudo tcpdump -i enp0s31f6 -w /tmp/capture.pcap -C 100 -tttt -vvv -n
